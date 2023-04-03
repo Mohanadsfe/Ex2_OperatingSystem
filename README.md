@@ -29,13 +29,16 @@ the case, or “general failure” on some other problem (in addition to the ret
 The tool will support -f flag (that means force), that allows to overwrite the target file.
   
   <div> usage copy <file1> <file2> -v </div>
+    
 output: success
 
 ![Screenshot from 2023-04-04 01-21-12](https://user-images.githubusercontent.com/92846018/229640328-0861b43b-1306-4172-8f86-884aafdc80e1.png)
 
 
 
+    
     <div> implement a coding library. We have two codding methods. </div>
+    
     
 Method a, named codecA: covert all lower case chars to upper case, and all upper case to lower case.
 All other chars will remain unchanged.
@@ -50,12 +53,18 @@ There 2 different shared libraries , each implementing it’s algorithm
 two tools, named encode and decode, to utilize the libraries. The tools will get some text and
 convert it according to selected library.
     
-    <div> Usage : encode/decode <codec> <message> </div>
+    
+    <div> 
+      
+Usage : encode/decode <codec> <message> 
       
 output: encoded/decoded string
+      
 example: “encode codecA aaaBBB” will return “AAAbbb”
+      
 example: “decode codecB EEEddd” will return “BBBaaa”
 
+      </div> 
 
 ![Screenshot from 2023-04-04 01-05-05](https://user-images.githubusercontent.com/92846018/229640406-f27c2dec-f28f-4264-a5b6-476fc840c72f.png)
 
