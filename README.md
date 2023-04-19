@@ -78,10 +78,14 @@ example: “decode codecB EEEddd” will return “BBBaaa”
     
     1.) ./cmp <file1><file2> flag
     2.) ./copy <file1><file2> flag
-    <h2> redirect output > >> </h3>
+  
+     redirect output > >> 
+  
     3.) ls > "filenew.txt"
     4.) ls >> "filenew.txt"
-    <h3> pipe 2 </h3>
+  
+    pipe 2 
+  
     5.) ls -l | grep aaa | wc.
     
 </div>
