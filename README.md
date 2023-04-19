@@ -68,5 +68,21 @@ example: “decode codecB EEEddd” will return “BBBaaa”
 
 ![Screenshot from 2023-04-04 01-05-05](https://user-images.githubusercontent.com/92846018/229640406-f27c2dec-f28f-4264-a5b6-476fc840c72f.png)
 
-
+<div> 
+    M$SshellStudents
+    
+    There a lot of options to use it:- 
+    
+    First, you should use "make all".
+    Then , the options:-
+    
+    1.) ./cmp <file1><file2> flag
+    2.) ./copy <file1><file2> flag
+    <h2> redirect output > >> </h3>
+    3.) ls > "filenew.txt"
+    4.) ls >> "filenew.txt"
+    <h3> pipe 2 </h3>
+    5.) ls -l | grep aaa | wc.
+    
+</div>
 
