@@ -6,29 +6,25 @@
 
 int encode(char *src, char *dst, int len){
     for(int i = 0; i < len; i++){
-        printf("%d\n", src[i]);
-        // switch bits
-        src[i] = ~src[i];
-        printf("%d\n", src[i]);
-        // adding 1
-        src[i]+=1;
-        printf("%d\n", src[i]);
-        // convert back to char
-        dst[i] = (char) src[i];
+        
+             dst[i] = (src[i] + 3)%255;
+
     }
+        dst[len]= '\0';
+
     return 1;
 }
 
 int decode(char *src, char *dst, int len){
-
-
+    
     for(int i = 0; i < len; i++){
 
 
 
-        dst[i] = src[i] - 3;
-
+        dst[i] = (char)(src[i] - 3)%255;
 
     }
+    dst[len]= '\0';
+
     return 1;
 }

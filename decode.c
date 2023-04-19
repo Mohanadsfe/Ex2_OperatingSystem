@@ -14,41 +14,42 @@ int main(int argc, char *argv[]){
     }
 
 
-    void *handle; //pointer to the function, we don't know the type yet
+    void *handle; //pointer to a function from one library.
     double (*decode)(char*, char*, int);
 
-    //opening the dynamic libraries
-    if (strcmp(argv[1], "codecA") == 0) { // codec1 case
+    //try openning the dynamic libraries
+    if (strcmp(argv[1], "codecA") == 0) { 
         handle = dlopen("./codecA.so", RTLD_LAZY);
     }
-    else if (strcmp(argv[1], "codecB") == 0) { // codec2 case
+    else if (strcmp(argv[1], "codecB") == 0) { 
         handle = dlopen("./codecB.so", RTLD_LAZY);
     }
-    else { // error case, none of the above
-        printf("Error: unknown library: %s\n", argv[1]);
+    else { 
+        printf("Error: unknown library with name : %s\n", argv[1]);
         exit(1);
     }
 
 
     if (!handle) {
-        /* fail to load the library */
-        printf("Error: %s\n", dlerror());
+       
+        printf("Error: fail to load the library %s\n", dlerror());
         exit(1);
     }
 
 
     *(void**)(&decode) = dlsym(handle, "decode");
-    //if the function wasn't found
     if (!decode) {
-        /* no such symbol */
-        fprintf(stderr, "Error: %s\n", dlerror());
+        fprintf(stderr, "Error: the function wasn't found %s\n", dlerror());
         dlclose(handle);
         exit(1);
     }
+
     int len = strlen(argv[2]);
-    char *dst = (char*) malloc(sizeof(char) * len+1); // pointer to the string
-    decode(argv[2], dst, len); // decode function
-    printf("%s\n", dst); // printing the answer
+    printf("%d\n",len);
+    char *dst = (char*) malloc(sizeof(char) * (len+1)); 
+
+    decode(argv[2], dst, len); 
+    printf("%s\n", dst); 
     free(dst);
 
 

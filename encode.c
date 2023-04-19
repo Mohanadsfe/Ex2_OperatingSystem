@@ -42,9 +42,16 @@ int main(int argc, char *argv[]){
         dlclose(handle);
         exit(1);
     }
-    int len = strlen(argv[2]);
-    char *dst = (char*) malloc(sizeof(char) * len+1); // pointer to the string
-    encode(argv[2], dst, len); // decode function
+    int len = (int)strlen(argv[2]);
+    printf("%d\n",len);
+    printf("%s\n", argv[2]); // printing the answer
+
+
+    char *dst = (char*) malloc(sizeof(char) * len); // pointer to the string
+   
+    encode(argv[2], dst, len); 
+        dst[len]='\0';
+
     printf("%s\n", dst); // printing the answer
     free(dst);
 

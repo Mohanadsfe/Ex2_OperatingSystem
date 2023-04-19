@@ -3,13 +3,17 @@ FLAGS= -Wall -g
 AR= ar
 
 #make all
-all: cmp copy encode decode
+all: cmp copy encode decode stshell
 .PHONY: clean
 #make clean
 clean:
-	rm -f *.o *.a *.so cmp copy encode decode
+	rm -f *.o *.a *.so cmp copy encode decode stshell
 
+stshell: stshell.o
+		$(CC) $(FLAGS) -o stshell stshell.o
 
+stshell.o : stshell.c
+	$(CC) $(FLAGS) -c stshell.c
 
 copy: copy.o
 	$(CC) $(FLAGS) -o copy copy.o
